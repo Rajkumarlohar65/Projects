@@ -29,7 +29,8 @@ def wishMe():
     speak("How can i help you")
 
 
-def takeCommand():  # It takes microphone input from the user and return string output
+def takeCommand(): 
+    # It takes microphone input from the user and return string output
 
     r = sr.Recognizer()
     with sr.Microphone() as source:
@@ -52,7 +53,7 @@ if __name__ == "__main__":
     while True:
         query = takeCommand().lower()
 
-        if 'wikipedia' in query:
+        if 'wikipedia' in query:    # Search from wikipedia
             speak('searching wikipedia...')
             query = query.replace('wikipedia', '')
             results = wikipedia.summary(query, sentences=2)
@@ -70,7 +71,7 @@ if __name__ == "__main__":
             webbrowser.open("stackoverflow.com")
 
         elif 'play music' in query:
-            music_dir = 'D:\\songs'
+            music_dir = 'D:\\songs' # Take path of the music
             songs = os.listdir(music_dir)
             print(songs)
             os.startfile(os.path.join(music_dir, songs[0]))
@@ -80,8 +81,8 @@ if __name__ == "__main__":
             print(strTime)
             speak(f"Sir, the time is {strTime}")
 
-        elif 'open code' in query:
-            codePath = "C:\\Users\\rajku\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"
+        elif 'open code' in query: 
+            codePath = "C:\\Users\\rajku\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"    # Path of the vs code
             os.startfile(codePath)
 
         elif 'quit' in query:
